@@ -7,7 +7,7 @@
 		<key>ExampleApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>9</integer>
 		</dict>
 		<key>SaferizeTests.xcscheme</key>
 		<dict>
@@ -17,7 +17,7 @@
 		<key>ios-sdk.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>8</integer>
 		</dict>
 	</dict>
 </dict>

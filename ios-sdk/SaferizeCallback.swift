@@ -1,17 +1,17 @@
 
 
-class SaferizeCallback {
+public class SaferizeCallback {
     
-    init() {
+    public init() {
         
     }
     
-    typealias  Event = ((SaferizeSession) -> Void)?
+    public typealias  Event = ((SaferizeSession) -> Void)?
     
-    var onConnect: Event
-    var onDisconnect: Event
-    var onPaused: Event
-    var onResumed: Event
-    var onTimeIsUp: Event
-    var onError: Event
+    public var onConnect: Event
+    public var onDisconnect: Event
+    public var onPaused: Event
+    public var onResumed: Event
+    public var onTimeIsUp: Event
+    public var onError: Event
 }

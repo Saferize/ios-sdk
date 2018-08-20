@@ -1,23 +1,23 @@
 
 import ObjectMapper
 
-class SaferizeSession: Mappable {
+public class SaferizeSession: Mappable {
     
-    enum Status: String {
+    public enum Status: String {
         case ACTIVE
         case EXPIRED
     }
     
-    var status: Status?
-    var id: Int?
-    var approval: Approval?
+    public var status: Status?
+    public var id: Int?
+    public var approval: Approval?
     
     
-    required init?(map: Map) {
+    public required init?(map: Map) {
         
     }
     
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         id <- map["id"]
         status <- map["status"]
         approval <- map["approval"]

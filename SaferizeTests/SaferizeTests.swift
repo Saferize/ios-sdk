@@ -12,9 +12,16 @@ import XCTest
 
 class SaferizeTests: XCTestCase {
     
+    var config: SaferizeConfig!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let certificatePath = Bundle(for: SaferizeService.self).path(forResource: "saferize-dev", ofType: "p12")!
+        
+        let p12Data = try! Data(contentsOf: URL(fileURLWithPath: certificatePath))
+
+        config = SaferizeConfig(url: "http://api.dev.saferize", websocketUrl: "ws://websocket.dev.saferize/usage", accessKey: "6b405c76-4b36-4821-9ab5-3a4a127b2af1", privateKey: p12Data)
     }
     
     override func tearDown() {
@@ -23,7 +30,8 @@ class SaferizeTests: XCTestCase {
     }
     
     func testSignUp() {
-        let service = SaferizeService()
+        
+        let service = SaferizeService(config: config)
         
         let e = expectation(description: "Approval")
         
@@ -38,7 +46,7 @@ class SaferizeTests: XCTestCase {
     }
     
     func testCreateSession() {
-        let service = SaferizeService()
+        let service = SaferizeService(config: config)
         
         let e = expectation(description: "Approval")
         
@@ -63,7 +71,7 @@ class SaferizeTests: XCTestCase {
         callback.onConnect = { session in
             e.fulfill()
         }
-        let service = SaferizeService()
+        let service = SaferizeService(config: config)
 
         
         service.createSession(userToken: "MyToken", callback: { session in
